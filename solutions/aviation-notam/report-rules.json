@@ -1,0 +1,21 @@
+{
+  "version": "report-v1",
+  "source": "学长提供的研究报告.docx，3.3节后测试用例TC-001至TC-005；NOTAM-Evolve附录PDF第9—10页",
+  "scope": "机场与跑道业务限制、备降限制、条件与例外、多设施关闭。原文明示的滑行道可列为受影响设施；不推断未给出的机场设施。",
+  "rules": [
+    "输出一个JSON对象。采用研究报告案例原有的字段名，包括restriction_Type、Diversion_Restriction和industrialaction，不改成五字段数组。未出现且不能确定的可选字段省略，禁止为了填满字段编造原因、限制、设施或例外。details为可选概括，若有则保留限制、未受影响的业务和例外。复杂情况优先用结构化字段完整表达。",
+    "airport必须来自A)字段。id仅在输入明确提供报文编号时返回；输入未提供编号时省略。",
+    "restriction_Type：机场明确完全关闭且没有保留业务时为closed；部分业务受限、条件准入、只接受例外业务、跑道或滑行道等部分设施关闭时为ltd；明确重新开放或撤销关闭时为open。不能把OPEN、NOT CLSD、重新开放解释成关闭。open是按论文开放类别新增的工程枚举。",
+    "不接收备降或不用于备降计划时Diversion_Restriction=true。不能将其解释为所有起降都被禁止。工业行动或罢工导致限制时industrialaction=true。",
+    "affect_region依据原文受限制的业务填写。仅禁止着陆为LANDINGS，仅禁止起飞为TAKEOFFS，两者都受影响为TAKEOFFS,LANDINGS；没有足够依据时省略。ARR/到达未受影响、调机未受影响等条件必须保留在details或restrictions中。",
+    "对不同航班类别分别输出restrictions，不合并相互不同的条件。permission为denied、conditional或allowed；operation为landing、takeoff、takeoff,landing或diversion。conditional必须附condition。机组与航空器同时具备资格的AND条件不能改成OR；紧急情况等例外写入exception。applies_to.flight_type使用international/domestic/regional。",
+    "明确的AIP SUP编号写入aip_reference，格式仅为AIP SUP 08/24这类编号，不附DATED日期；发布日期可以保留在details。reason说明原文给出的原因。exception保留紧急医疗直升机、指定区域等例外适用对象与范围。",
+    "affected_facilities保留原文设施和名称，例如RWY 09/27对应Runway名称09/27，ALL TWY对应Taxiway名称ALL。局部关闭必须在details保留局部长度和位置，不得据此声称整个机场关闭。没有机场设施表时不能从AD CLSD补出跑道列表。",
+    "若有B)、C)或D)，附validity：start/end保留原文十位UTC时间字符串，缺失用null；C)PERM时end=null且permanent=true；C)含EST时estimated=true；schedule保留D)原文或null。此对象是明确标识的工程时间补充，未有时间字段时省略。不要自行补年份世纪、时区或结束时间。"
+  ],
+  "differences": [
+    "研究报告未给出统一机器可读schema；本schema把五个案例字段整理为可选组合，不声称等同原系统的最新接口。",
+    "论文五字段模式的局部影响归并规则只用于论文模式。业务模式保留原文局部范围和例外，不把该研究简化扩展为实际运行结论。",
+    "不具备机场设施基础表、机型CODE映射表时，只保留原文，不展开设施或机型列表。"
+  ]
+}

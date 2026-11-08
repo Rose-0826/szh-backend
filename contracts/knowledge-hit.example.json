@@ -1,0 +1,8 @@
+{
+  "data_origin": "interface_fixture",
+  "source_id": "caac-ac175-2025-01",
+  "title": "民用航空航行通告系列管理规定",
+  "locator": { "pdf_page": 3, "printed_page": "2", "article": "第六条（三）" },
+  "quote": "F系列：发布内容为上海飞行情报区内上海/虹桥（ZSSS）、上海/浦东（ZSPD）、南通/兴东（ZSNT）机场的相关航空情报。",
+  "note": "引文按原文整理空格与换行，用于接口开发；尚未实现自动检索。"
+}

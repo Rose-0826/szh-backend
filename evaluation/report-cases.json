@@ -1,0 +1,124 @@
+{
+  "schema_version": "report-v1",
+  "note": "开发用参考案例，不能据此推断总体专业正确率",
+  "cases": [
+    {
+      "id": "TC-001",
+      "name": "机场因天气原因完全关闭",
+      "parser_type": "report",
+      "origin": "provided_report_reference",
+      "source": "研究报告.docx，测试用例TC-001至TC-005",
+      "notam_id": "ZYSH_C0999/24",
+      "notam": "A) ZBLA E)机场关闭, 因跑道积冰。",
+      "expected": {
+        "id": "ZYSH_C0999/24",
+        "airport": "ZBLA",
+        "restriction_Type": "closed",
+        "affect_region": "TAKEOFFS,LANDINGS",
+        "reason": "Runway icing",
+        "details": "Airport is closed due to runway icing."
+      }
+    },
+    {
+      "id": "TC-002",
+      "name": "机场拒绝接收备降航班",
+      "parser_type": "report",
+      "origin": "provided_report_reference",
+      "source": "研究报告.docx，测试用例TC-001至TC-005",
+      "notam_id": "ZYSH_C0381/24",
+      "notam": "A) ZYTX E)本场不接收备降航班。",
+      "expected": {
+        "id": "ZYSH_C0381/24",
+        "airport": "ZYTX",
+        "restriction_Type": "ltd",
+        "Diversion_Restriction": true,
+        "details": "Airport not available for diversions."
+      }
+    },
+    {
+      "id": "TC-003",
+      "name": "包含复杂条件的运行限制",
+      "parser_type": "report",
+      "origin": "provided_report_reference",
+      "source": "研究报告.docx，测试用例TC-001至TC-005",
+      "notam_id": "ZPKM_K0790/24",
+      "notam": "A) ZPPP E)本场接收航空器有以下限制, 紧急情况除外: 1. 针对国际及港、澳、台地区航空公司, 不接收航空器降落. 2. 针对国内航空公司, 只接收机组与航空器同时具备RNP-AR 或RNP-APCH 能力的航空器。",
+      "expected": {
+        "id": "ZPKM_K0790/24",
+        "airport": "ZPPP",
+        "restriction_Type": "ltd",
+        "affect_region": "LANDINGS",
+        "exception": "Emergency situations",
+        "restrictions": [
+          {
+            "applies_to": {
+              "flight_type": [
+                "international",
+                "regional"
+              ]
+            },
+            "permission": "denied",
+            "operation": "landing"
+          },
+          {
+            "applies_to": {
+              "flight_type": [
+                "domestic"
+              ]
+            },
+            "permission": "conditional",
+            "operation": "landing",
+            "condition": "Aircraft AND crew must be RNP-AR or RNP-APCH capable."
+          }
+        ]
+      }
+    },
+    {
+      "id": "TC-004",
+      "name": "因罢工导致的部分业务关闭",
+      "parser_type": "report",
+      "origin": "provided_report_reference",
+      "source": "研究报告.docx，测试用例TC-001至TC-005",
+      "notam_id": "EDGG_C0881/24",
+      "notam": "A) EDSB E)NO SKED DEP FLT WITH PAX ONBOARD POSS. ARR FLT AND FERRY FLT NOT AFFECTED. AD NOT USABLE FOR ALTN PLANNING. DUE TO INDUSTRIAL ACTIONS BY SECURITY STAFF.",
+      "expected": {
+        "id": "EDGG_C0881/24",
+        "airport": "EDSB",
+        "restriction_Type": "ltd",
+        "industrialaction": true,
+        "Diversion_Restriction": true,
+        "details": "Scheduled departure flights with passengers are not possible due to industrial action by security staff. Arrival flights and ferry flights are not affected. Airport is not available for alternate planning."
+      }
+    },
+    {
+      "id": "TC-005",
+      "name": "包含 AIP 参考和多项设施限制",
+      "parser_type": "report",
+      "origin": "provided_report_reference",
+      "source": "研究报告.docx，测试用例TC-001至TC-005",
+      "notam_id": "RCAA_A0472/24",
+      "notam": "A) RCKH E)REF AIP SUP 08/24 DATED 08 MAR 2024, CONST WORK AT KAOHSIUNG INTL AIRPORT, PHASE 1 (DURING CURFEW) ACT. 1. RWY 09/27 CLSD. 2. ALL TWY CLSD. 3. THE AP IS ONLY AVBL FOR EMERG MEDICAL SER HEL TKOF/LDG AT DESIGNATED AREA. 4. THE AP IS NOT TO BE USED FOR TECHNICAL LDG OR NOT TO BE REQ AS AN ALTN FOR FLT PLANNING.",
+      "expected": {
+        "id": "RCAA_A0472/24",
+        "airport": "RCKH",
+        "restriction_Type": "ltd",
+        "aip_reference": "AIP SUP 08/24",
+        "Diversion_Restriction": true,
+        "reason": "Construction work",
+        "affected_facilities": [
+          {
+            "type": "Runway",
+            "name": "09/27",
+            "status": "closed"
+          },
+          {
+            "type": "Taxiway",
+            "name": "ALL",
+            "status": "closed"
+          }
+        ],
+        "exception": "Available only for emergency medical service helicopters for takeoff/landing at designated areas. Not to be used for technical landings."
+      }
+    }
+  ]
+}

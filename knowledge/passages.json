@@ -1,0 +1,54 @@
+{
+  "version": "0.1.0",
+  "verified_on": "2026-10-28",
+  "passages": [
+    {
+      "id": "faa-icao-fields",
+      "title": "国际 NOTAM 字段说明",
+      "publisher": "FAA",
+      "version": "FAA Order 7930.2U，Effective 2025-08-10，Change 1，2026-10-28采用",
+      "url": "https://www.faa.gov/air_traffic/publications/atpubs/notam_html/chap8_section_1.html",
+      "locator": "Chapter 8 Section 1 — International NOTAM",
+      "kind": "source_summary",
+      "summary": "Q)提供编码信息；A)标识受影响的机场或飞行情报区；B)/C)说明生效和结束时间；D)记录时间安排；E)提供文字内容。A)不一定是机场，当前任务只处理机场跑道报文。",
+      "keywords": ["A)", "B)", "C)", "D)", "E)", "Q)", "字段", "机场", "时间", "报文"],
+      "scope_note": "用于解释美国官方国际 NOTAM 字段结构；不作为中国运行规则或本项目输出字段规范依据。"
+    },
+    {
+      "id": "faa-runway-format",
+      "title": "跑道编号、时间与局部关闭",
+      "publisher": "FAA",
+      "version": "FAA Order 7930.2U，Effective 2025-08-10，Change 1，2026-10-28采用",
+      "url": "https://www.faa.gov/air_traffic/publications/atpubs/notam_html/chap3_section_3.html",
+      "locator": "Chapter 3 Section 3 — NOTAM General Procedures",
+      "kind": "source_summary",
+      "summary": "时间通常采用UTC十位年月日时分。跑道使用公布编号，保留前导零及L/R/C。局部关闭需要记录受影响范围，不能在当前五字段中直接表示完整影响。",
+      "keywords": ["跑道", "编号", "UTC", "时间", "局部", "关闭", "L/R/C", "RWY"],
+      "scope_note": "用于格式核对；具体机场设施必须另有相应日期的机场资料。"
+    },
+    {
+      "id": "faa-qmrlc",
+      "title": "Q码中的跑道关闭标识",
+      "publisher": "FAA",
+      "version": "FAA Order 7930.2U，Effective 2025-08-10，Change 1，2026-10-28采用",
+      "url": "https://www.faa.gov/air_traffic/publications/atpubs/notam_html/appendix_b.html",
+      "locator": "Appendix B — NOTAM Code",
+      "kind": "source_summary",
+      "summary": "Q码中的MR表示跑道，LC表示关闭；QMRLC可用于核对跑道关闭主题。具体条件和例外仍需读取E)正文。",
+      "keywords": ["Q码", "QMRLC", "MR", "LC", "CLSD", "跑道", "关闭"],
+      "scope_note": "主题线索，不能据此补猜缺失的跑道或忽略正文条件。"
+    },
+    {
+      "id": "caac-notam-series",
+      "title": "民用航空航行通告系列管理规定",
+      "publisher": "中国民用航空局",
+      "version": "民航规〔2025〕26号，AC-175-TM-2025-01，2025-10-22发布，2025-11-19施行，2026-10-28采用",
+      "url": "https://www.caac.gov.cn/XXGK/XXGK/GFXWJ/202510/t20251031_229014.html",
+      "locator": "PDF第3页，印刷页第2页，第六条第三项",
+      "kind": "source_summary",
+      "summary": "该规定对中国民用航空航行通告的系列与使用范围作出安排。F系列的适用范围可在第六条第三项定位；它不是跑道JSON解析的完整字段规范。",
+      "keywords": ["系列", "F系列", "民航局", "中国", "通告"],
+      "scope_note": "适用于中国民用航空航行通告的系列划分和使用；不覆盖完整报文编发、解析字段和业务判断规则。原始PDF已存入knowledge/documents，并在sources.json登记SHA-256。"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "schema_version": "paper-v1-draft",
+  "professional_review": "pending",
+  "cases": [
+    { "id": "R01", "name": "论文跑道对", "origin": "paper_example", "source": "https://arxiv.org/abs/2511.07982v1，PDF第9—10页", "notam": "Q)KZDV/QMRLC/IV/NBO/A/000/999/3952N10440W005\nA)KDEN B)2301010254 C)2301011200\nE) DEN RWY 17L/35R CLSD", "airport": "KDEN", "runways": ["17L", "35R"], "affect_region": "TAKEOFFS,LANDINGS", "expected_valid": true },
+    { "id": "R02", "name": "官方历史格式摘取", "origin": "historical_official_excerpt", "source": "https://www.faa.gov/air_traffic/flight_info/aeronav/notams/media/ICAO_NOTAM_Format_Example.pdf，第1页摘取A/E字段", "notam": "A) KORD\nE) RWY 04L/22R CLSD", "airport": "KORD", "runways": ["04L", "22R"], "affect_region": "TAKEOFFS,LANDINGS", "expected_valid": true },
+    { "id": "R03", "name": "只影响着陆", "origin": "constructed", "source": "人工构造，仅验证文本解析，不验证机场设施", "notam": "A) ZBAA\nE) RWY 18L CLSD FOR LANDINGS", "airport": "ZBAA", "runways": ["18L"], "affect_region": "LANDINGS", "expected_valid": true },
+    { "id": "R04", "name": "局部范围提示", "origin": "constructed", "source": "人工构造；只检查局部范围提示，不计全字段正确率", "notam": "A) KDEN\nE) RWY 17L/35R E 500FT CLSD", "expect_warning": "局部范围", "expected_valid": true },
+    { "id": "R05", "name": "没有跑道编号", "origin": "constructed", "source": "人工构造，缺少机场设施表", "notam": "A) KDEN\nE) AD CLSD", "expected_valid": false, "expected_empty": true, "expect_error": "未提供当前任务可用的明确跑道编号" },
+    { "id": "R06", "name": "滑行道不补猜跑道", "origin": "constructed", "source": "人工构造，检查本轮范围", "notam": "A) KDEN\nE) TWY B CLSD", "expected_valid": false, "expected_empty": true, "expect_error": "当前仅支持跑道解析" }
+  ]
+}

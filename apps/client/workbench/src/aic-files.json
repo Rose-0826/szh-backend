@@ -1,0 +1,23 @@
+[
+  "00_先读.md",
+  "01_AIC任务说明与复跑.md",
+  "02_结果字段说明.md",
+  "03_真实样例/aic_result_example.json",
+  "03_真实样例/代表椭圆_Uy参考重建误差.png",
+  "03_真实样例/同批12例_40秒对照.csv",
+  "03_真实样例/困难长方柱_Uy参考重建误差.png",
+  "03_真实样例/独立8工况_RTX3090计时.csv",
+  "03_真实样例/输入/ellipse_a1p4_Re169.08_cy-0.368_D1.171_input.json",
+  "03_真实样例/输入/ellipse_a1p4_Re169.08_cy-0.368_D1.171_input.npz",
+  "03_真实样例/输入/rectangle_a1p7_Re133.03_cy0.304_D1.131_input.json",
+  "03_真实样例/输入/rectangle_a1p7_Re133.03_cy0.304_D1.131_input.npz",
+  "04_服务器原始记录/current_field_manifest.json",
+  "04_服务器原始记录/current_field_snapshots.npz",
+  "04_服务器原始记录/current_runtime.json",
+  "04_服务器原始记录/final_result.json",
+  "04_服务器原始记录/fresh_case_metrics.csv",
+  "04_服务器原始记录/fresh_comparison.json",
+  "04_服务器原始记录/selected_system.json",
+  "04_服务器原始记录/selection_lock.json",
+  "来源校验.json"
+]

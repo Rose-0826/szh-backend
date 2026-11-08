@@ -1,0 +1,22 @@
+{
+  "id": "aic-flowproxy",
+  "version": "0.1.0",
+  "name": "AIC 流相：周期绕流场重建",
+  "status": "development",
+  "schema_status": "historical_sample",
+  "description": "沿用现有 FlowProxy 权重和 76 个观测值，返回基线、历史候选配置、确认批逐例指标、独立计时和可下载文件。本周新的观察器试验完成后按同一字段替换。",
+  "work_modes": ["research"],
+  "skills": ["SKILL.md"],
+  "tools": ["aic_catalog", "aic_metrics"],
+  "knowledge_sources": [],
+  "constraints": {
+    "operations": ["read_cases", "compare_baseline", "list_candidates", "attach_files"],
+    "missing_information": "耗时或当次试验没有记录时明确写成未记录，不把其他工况的计时填过来",
+    "unsupported_conclusions": "不把历史候选配置写成已经完成本周 4—6 组观察器试验"
+  },
+  "checks": {
+    "reference_cases": ["AIC_流相_两组开工材料_20261105"],
+    "professional_rules": "确认批 12 例、40 秒、160 帧；内部目标 R ≤ 1；相对 L2 原值为比例"
+  },
+  "deliverables": ["任务状态", "候选配置", "逐例指标", "试验耗时", "过程记录", "结果文件"]
+}

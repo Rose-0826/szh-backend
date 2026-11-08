@@ -1,0 +1,25 @@
+{
+  "id": "aviation-notam",
+  "version": "0.1.0",
+  "name": "航行情报解析与核对",
+  "status": "development",
+  "schema_status": "source_based",
+  "description": "输入NOTAM报文，按论文五字段模式或研究报告业务模式输出JSON，检查已提供的规则并保留原文定位。",
+  "parser_types": ["runway", "report"],
+  "schema_source": "https://arxiv.org/abs/2511.07982v1",
+  "work_modes": ["engineering"],
+  "planned_work_modes": ["research", "business"],
+  "skills": ["SKILL.md"],
+  "tools": ["notam_schema", "notam_reference"],
+  "knowledge_sources": [],
+  "constraints": {
+    "operations": ["read_schema", "parse_runway", "parse_report", "validate_output"],
+    "missing_information": "列出缺少内容，等待补充",
+    "unsupported_conclusions": "明确标记未找到依据"
+  },
+  "checks": {
+    "reference_cases": ["evaluation/notam-cases.json", "evaluation/report-cases.json"],
+    "professional_rules": "采用论文附录第9—10页及研究报告TC-001至TC-005，工程整理差异见report-rules.json"
+  },
+  "deliverables": ["解析结果", "来源引用", "待确认事项"]
+}

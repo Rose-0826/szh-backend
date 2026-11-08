@@ -1,0 +1,50 @@
+{
+  "schema_version": "0.1",
+  "id": "aic-inference",
+  "version": "0.1.0",
+  "name": "AIC 流相推理与复核",
+  "description": "使用已发布的 FlowProxy 模型重建样例流场，生成新的预测文件，并与交付包参考预测进行数值一致性复核。",
+  "domain": "流体力学",
+  "input_schema": {
+    "type": "object",
+    "required": [
+      "case_id"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "case_id": {
+        "type": "string",
+        "title": "样例工况",
+        "enum": [
+          "cylinder_Re143.41_cy0.208_D1.184",
+          "ellipse_a1p4_Re135.32_cy-0.091_D1.16",
+          "ellipse_a1p4_Re169.08_cy-0.368_D1.171",
+          "ellipse_a1p8_Re113.08_cy0.195_D1.141",
+          "ellipse_a1p8_Re171.3_cy-0.507_D1.09",
+          "irregular_b1_Re98.56_cy-0.101_D1",
+          "irregular_b2_Re129.82_cy0.219_D1.154",
+          "rectangle_a1p3_Re134.99_cy-0.248_D1.159",
+          "rectangle_a1p3_Re139.63_cy-0.057_D1.04",
+          "rectangle_a1p7_Re133.03_cy0.304_D1.131",
+          "rectangle_a1p7_Re146.95_cy-0.286_D1.057",
+          "square_Re95.73_cy0.172_D1.014"
+        ]
+      }
+    }
+  },
+  "output_schema": {
+    "type": "object"
+  },
+  "runtime": {
+    "adapter": "aic-packaged-inference",
+    "entrypoint": "scripts/aic/run_solution.py"
+  },
+  "assets": [],
+  "validation": {
+    "scope": "交付包样例的推理复现一致性，不是模型优化或相对 CFD 真值精度评测"
+  },
+  "delivery": {
+    "prediction": true,
+    "report": true
+  }
+}

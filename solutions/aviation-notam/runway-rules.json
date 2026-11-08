@@ -1,0 +1,16 @@
+{
+  "version": "paper-v1",
+  "status": "source_based",
+  "source_url": "https://arxiv.org/abs/2511.07982v1",
+  "source_locator": "附录 Task Prompt，PDF第9—10页",
+  "scope": "按论文提示词解析跑道关闭、限制和重新开放；忽略滑行道、停机坪和灯光。",
+  "rules": [
+    "输出JSON数组，每条恰好包含airport、runway、affect_actype、affect_region、flight_type五个字段。机场代码取原文A)字段，每个明确提到的跑道方向单独输出。保留前导零和L/R/C。缺少明确跑道编号时返回空数组，不补猜机场设施。",
+    "识别关闭MRLC/MRXX及CLOSED、CLSD、CLOSURE、NOT AVBL、UNAVAILABLE、SUSPENDED；限制MRLT/MRXX及RESTRICTED、LIMITED、RESERVED FOR；开放MRAH及OPEN、OPN TO TFC、CANCELLED CLOSURE。状态分类保存在检查说明中，不给五字段JSON另加字段。注意否定与取消关闭。",
+    "起飞或着陆影响按原文填写TAKEOFFS、LANDINGS或TAKEOFFS,LANDINGS，未指定时采用论文默认TAKEOFFS,LANDINGS。",
+    "航班类型按原文明示填写，原文有中文类型时保留中文。未指定时采用论文默认International,Domestic,Regional，不缩减范围。",
+    "未提及机型或机型限制时affect_actype=null；翼展、CODE类别或发动机数量限制按原文保留。翼展FT按1FT=0.3048M换算，保留大于、小于等比较关系。无机型映射表时保留CODE C等原文类别，不推测具体机型。",
+    "按论文Notes，局部关闭或限制归并到相应跑道的关闭或限制记录。这是论文模式的简化；原文局部位置、长度仍保留并提示。需要完整业务范围、关闭状态和例外时使用研究报告业务模式。",
+    "只提取有明确依据的信息。时间B/C/D和状态分类记录在检查说明中，五字段本身不增加有效时间或状态字段。"
+  ]
+}

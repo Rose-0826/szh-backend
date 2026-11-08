@@ -1,0 +1,25 @@
+{
+  "data_origin": "interface_fixture",
+  "runtime_executed": false,
+  "task": {
+    "id": "example-aviation-001",
+    "goal": "将NOTAM跑道信息解析为结构化JSON",
+    "notam": "A)KDEN E) DEN RWY 17L/35R CLSD",
+    "parser_type": "runway",
+    "solution": { "id": "aviation-notam", "version": "0.1.0", "schema_version": "paper-v1-draft" },
+    "work_mode": "engineering",
+    "status": "awaiting_confirmation",
+    "plan": ["读取字段与官方资料", "执行跑道解析", "检查JSON并保留原文依据"],
+    "steps": [
+      {
+        "id": "step-1",
+        "status": "pending",
+        "summary": "准备读取跑道字段草案。",
+        "details": { "tool_name": "notam_schema" },
+        "artifact_ids": []
+      }
+    ],
+    "result": null,
+    "issues": [{ "type": "pending_confirmation", "message": "等待确认计划；此文件是接口样例。" }]
+  }
+}
