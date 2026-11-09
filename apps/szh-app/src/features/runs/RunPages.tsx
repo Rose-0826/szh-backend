@@ -33,7 +33,7 @@ export function RunsPage() {
           items={(['all', 'active', 'succeeded', 'failed'] as Filter[]).map((f) => ({ value: f, label: <>{{ all: '全部', active: '进行中', succeeded: '已完成', failed: '失败/取消' }[f]}{runs.data && <span className="faint"> {count(f)}</span>}</> }))} />
       </div>
       <QueryView query={runs} isEmpty={(d) => d.length === 0}
-        empty={<EmptyState icon={<Play />} title="还没有运行记录" description="在方案库中选择方案、配置输入后即可运行。" action={<ButtonLink to="/solutions" size="sm">去方案库</ButtonLink>} />}>
+        empty={<EmptyState icon={<Play />} title="还没有运行记录" description="在 Solutions 中选择一个 Solution，配置输入后即可运行。" action={<ButtonLink to="/solutions" size="sm">浏览 Solutions</ButtonLink>} />}>
         {(d) => { const shown = d.filter(match); return shown.length ? <div className="list">{shown.map((r) => <RunRow key={r.id} run={r} />)}</div> : <EmptyState compact title="没有符合条件的运行" />; }}
       </QueryView>
     </div>

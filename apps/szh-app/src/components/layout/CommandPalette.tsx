@@ -20,7 +20,7 @@ export function CommandPalette() {
   const items = useMemo<Item[]>(() => {
     const nav: Item[] = [
       { id: 'n-home', group: '前往', label: '工作台', icon: Home, to: '/' },
-      { id: 'n-sol', group: '前往', label: '方案库', icon: Boxes, to: '/solutions' },
+      { id: 'n-sol', group: '前往', label: 'Solutions', icon: Boxes, to: '/solutions' },
       { id: 'n-run', group: '前往', label: '运行记录', icon: Play, to: '/runs' },
       { id: 'n-art', group: '前往', label: '成果', icon: FileStack, to: '/artifacts' },
       { id: 'n-chat', group: '前往', label: '对话', icon: MessageSquare, to: '/conversations' },

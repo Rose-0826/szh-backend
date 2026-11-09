@@ -113,7 +113,7 @@ function Sidebar() {
   const recent = runs.data?.slice(0, 8) ?? [];
   const items = [
     { to: '/', icon: Home, label: '工作台', end: true },
-    { to: '/solutions', icon: Boxes, label: '方案库' },
+    { to: '/solutions', icon: Boxes, label: 'Solutions' },
     { to: '/runs', icon: Play, label: '运行', count: active },
     { to: '/artifacts', icon: FileStack, label: '成果' },
     { to: '/conversations', icon: MessageSquare, label: '对话' },

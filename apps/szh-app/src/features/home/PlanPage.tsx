@@ -62,7 +62,7 @@ export function PlanPage() {
                 <span className="xs faint row" style={{ gap: 4, marginLeft: 'auto' }}><Sparkles size={12} />按关键词匹配推荐 · 模型规划尚未接入</span>
               </div>
               {ranked.length === 0 ? (
-                <EmptyState compact icon={<Boxes />} title="暂无可用方案" description="方案库为空，可以先与 AI 讨论这个问题。" />
+                <EmptyState compact icon={<Boxes />} title="暂无可用 Solution" description="Harness 中还没有已发布的 Solution，可以先与 AI 讨论这个问题。" />
               ) : (
                 <div className="plan-options">
                   {(matches.length ? matches : ranked).slice(0, 4).map(({ solution: s, score }) => (

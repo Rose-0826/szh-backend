@@ -32,7 +32,7 @@ function Workspace({ solution }: { solution: Solution }) {
   const version = solution.versions.find((v) => v.version === versionParam) ?? solution.versions[0];
   const runs = useRuns();
   const ownRuns = useMemo(() => (runs.data ?? []).filter((r) => r.solutionId === solution.id), [runs.data, solution.id]);
-  usePageContext([{ label: '方案库', to: '/solutions' }, { label: solution.name }], {
+  usePageContext([{ label: 'Solutions', to: '/solutions' }, { label: solution.name }], {
     kind: 'solution', label: solution.name, id: `${solution.id}@${version.version}`,
     facts: [
       `描述：${solution.description}`, `领域：${solution.domain}`, `执行适配器：${version.runtime.adapter}`,
