@@ -18,10 +18,9 @@
 /apps/client/workbench/src/*
 !/apps/client/workbench/src/aic-files.json
 !/apps/szh-app/
-/apps/szh-app/*
-!/apps/szh-app/scripts/
-/apps/szh-app/scripts/*
-!/apps/szh-app/scripts/harness-sandbox.mjs
+/apps/szh-app/captures/
+/apps/szh-app/release/
+!/Start-SZH-Next.cmd
 !/docs/
 /docs/*
 !/docs/BACKEND_ARCHITECTURE.md

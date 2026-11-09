@@ -2,7 +2,7 @@
 
 SZH 是面向科研和专业任务的本地优先 Harness。当前版本由两条后端链路组成：旧任务接口承载 NOTAM 解析、通用对话和 AIC 归档查看；版本化接口承载 Solution 注册、Run 和 Artifact。两条链路共用 HTTP 服务，独立记录状态。
 
-新版 Electron + React 客户端在完整工程的 `apps/szh-app` 下，通过 HTTP 调用后端。后端仓库提供服务和联调所需的沙箱脚本。完整工程还保留旧 WinForms/WebView2 客户端及 Web 预览，后端快照仅保留旧入口回归所需源码与清单。部署边界见 [架构](docs/BACKEND_ARCHITECTURE.md) 和 [客户端契约](docs/FRONTEND_BACKEND_CONTRACT.md)。
+新版 Electron + React 客户端在 `apps/szh-app` 下，通过 HTTP 调用后端，启动方式与已知限制见 [apps/szh-app/README.md](apps/szh-app/README.md)。Windows 下可用根目录 `Start-SZH-Next.cmd` 一键启动后端与客户端。完整工程还保留旧 WinForms/WebView2 客户端及 Web 预览，后端快照仅保留旧入口回归所需源码与清单。部署边界见 [架构](docs/BACKEND_ARCHITECTURE.md) 和 [客户端契约](docs/FRONTEND_BACKEND_CONTRACT.md)。
 
 ## 启动
 
